@@ -19,7 +19,15 @@ public class ApplicationAccountTest {
         ApplicationAccount applicationAccount = new ApplicationAccount();
         applicationAccount.initCard();
         applicationAccount.getAllCardsInfo();
-        applicationAccount.calcOverallBalance();
+        System.out.println("_____________");
+        //applicationAccount.calcOverallBalance();
+        Card privatbankCardNew = new PrivatbankCard();
+        privatbankCardNew.setBalance(14000.15);
+        privatbankCardNew.setCardNumber("6446845646546");
+        applicationAccount.addCard(privatbankCardNew);
+        applicationAccount.getAllCardsInfo();
+        System.out.println("_____________");
+        applicationAccount.deleteAllMonobankCards();
+        applicationAccount.getAllCardsInfo();
     }
-
 }

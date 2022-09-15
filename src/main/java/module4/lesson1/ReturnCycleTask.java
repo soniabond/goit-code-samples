@@ -36,5 +36,9 @@ public class ReturnCycleTask {
         return false;
     }
 
+    void defauldMethod() {
+        System.out.println("Hello");
+    }
+
 
 }

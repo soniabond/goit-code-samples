@@ -13,6 +13,9 @@ public class EvenIndexElementSum {
                 sum += numbers[i];
         }
         System.out.println("sum = " + sum);
+        new ReturnCycleTask().defauldMethod();
     }
+
+
 
 }
