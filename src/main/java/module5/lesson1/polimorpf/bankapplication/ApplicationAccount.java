@@ -1,6 +1,6 @@
 package module5.lesson1.polimorpf.bankapplication;
 
-import java.util.Arrays;
+import java.util.Objects;
 
 public class ApplicationAccount {
 
@@ -20,24 +20,23 @@ public class ApplicationAccount {
         myCards[1] = monobankCard;
     }
 
-    public void deleteAllMonobankCards() {
-        int monoCardAmount = 0;
-        for(Card card: myCards) {
-            if(card instanceof MonobankCard) {
-                monoCardAmount++;
+    public void deleteAllBankCards(String bankName) {
+        Class bankClass;
+        switch (bankName) {
+            case "mono":
+                bankClass = MonobankCard.class;
+                break;
+            case "privat":
+                bankClass = PrivatbankCard.class;
+                break;
+            default:
+                throw new RuntimeException("Undefined bank");
+        }
+        for(int i = 0; i < myCards.length; i++) {
+            if(myCards[i] != null && (bankClass.equals(myCards[i].getClass()))) {
+                myCards[i] = null;
             }
         }
-
-        Card [] newArr = new Card[myCards.length - monoCardAmount];
-        int newArrCounter = 0;
-        for(Card card: myCards) {
-            if(!(card instanceof MonobankCard)) {
-                newArr[newArrCounter] = card;
-                newArrCounter ++;
-            }
-        }
-
-        myCards = newArr;
     }
 
     public void addCard(Card cardToAdd) {

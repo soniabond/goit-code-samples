@@ -23,11 +23,11 @@ public class ApplicationAccountTest {
         //applicationAccount.calcOverallBalance();
         Card privatbankCardNew = new PrivatbankCard();
         privatbankCardNew.setBalance(14000.15);
-        privatbankCardNew.setCardNumber("6446845646546");
+        privatbankCardNew.setCardNumber("6446845646576");
         applicationAccount.addCard(privatbankCardNew);
         applicationAccount.getAllCardsInfo();
         System.out.println("_____________");
-        applicationAccount.deleteAllMonobankCards();
+        applicationAccount.deleteAllBankCards("mono");
         applicationAccount.getAllCardsInfo();
     }
 }

@@ -1,4 +1,4 @@
-package module6;
+package module6.lesson1;
 
 public class User {
     protected String firstName;
