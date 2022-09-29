@@ -80,10 +80,6 @@ public class User {
         this.lastUpdates = lastUpdates;
     }
 
-    public static Builder getBuilder() {
-        return new Builder();
-    }
-
     public static class Builder {
         private int id;
         private String name;

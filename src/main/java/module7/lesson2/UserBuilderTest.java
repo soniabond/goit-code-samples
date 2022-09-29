@@ -6,7 +6,7 @@ public class UserBuilderTest {
 
     public static void main(String[] args) {
 
-        User user = User.getBuilder()
+        User user = new User.Builder()
                 .id(1)
                 .mail("sdgsdg")
                 .lastUpdates(LocalDate.now())
