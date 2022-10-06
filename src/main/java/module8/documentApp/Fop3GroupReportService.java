@@ -1,6 +1,6 @@
 package module8.documentApp;
 
-public class Fop3GroupReportService extends ReportService {
+public class Fop3GroupReportService extends AbstractReportService {
 
     private String docData = "for 3 group doc";
     @Override

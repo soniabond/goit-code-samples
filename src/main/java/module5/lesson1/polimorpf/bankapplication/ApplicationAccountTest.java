@@ -27,7 +27,7 @@ public class ApplicationAccountTest {
         applicationAccount.addCard(privatbankCardNew);
         applicationAccount.getAllCardsInfo();
         System.out.println("_____________");
-        applicationAccount.deleteAllBankCards("mono");
+        applicationAccount.deleteAllBankCards(BankNames.MONO);
         applicationAccount.getAllCardsInfo();
     }
 }

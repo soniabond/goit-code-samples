@@ -1,6 +1,6 @@
 package module8.documentApp;
 
-public class ChangeFopGroupService extends ReportService{
+public class ChangeFopGroupService extends AbstractReportService {
 
     private String data = "Change from to group %s";
     @Override

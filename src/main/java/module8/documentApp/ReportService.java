@@ -1,17 +1,7 @@
 package module8.documentApp;
 
-public abstract class ReportService implements DocumentService {
-
-    private String dpsMail = "dps@gmail.com";
-
-    @Override
-    public void sign(Document document, String key) {
-        document.setKey(key);
-        System.out.println("You signed document by key " + key);
-    }
-
-    @Override
-    public void send(Document document) {
-        System.out.println("your document sent to DPS " + dpsMail);
-    }
+public interface ReportService extends DocumentService {
+    void fill(Document document, String dataToFill);
+    void sign(Document document, String key);
+    void send(Document document);
 }

@@ -1,7 +1,5 @@
 package module5.lesson1.polimorpf.bankapplication;
 
-import java.util.Objects;
-
 public class ApplicationAccount {
 
     private String accountNumber = "32169498sdgsdg";
@@ -20,20 +18,18 @@ public class ApplicationAccount {
         myCards[1] = monobankCard;
     }
 
-    public void deleteAllBankCards(String bankName) {
-        Class bankClass;
+    public void deleteAllBankCards(BankNames bankName) {
+        Class bankClass = null;
         switch (bankName) {
-            case "mono":
+            case MONO: {
                 bankClass = MonobankCard.class;
-                break;
-            case "privat":
+            } break;
+            case PRIVAT: {
                 bankClass = PrivatbankCard.class;
-                break;
-            default:
-                throw new RuntimeException("Undefined bank");
+            } break;
         }
         for(int i = 0; i < myCards.length; i++) {
-            if(myCards[i] != null && (bankClass.equals(myCards[i].getClass()))) {
+            if(myCards[i] != null && (bankClass != null && bankClass.equals(myCards[i].getClass()))) {
                 myCards[i] = null;
             }
         }
