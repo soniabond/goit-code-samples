@@ -1,2 +1,2 @@
 module8/documentApp diagram
-![docDiagram](src/main/resources/Screenshot (2).png)
+![docDiagram](https://github.com/soniabond/goit-code-samples/blob/master/src/main/resources/Screenshot%20(2).png)
