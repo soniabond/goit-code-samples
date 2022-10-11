@@ -1,4 +1,4 @@
-package module5.lesson1.arrayutils;
+package module6.lesson1.arrayutils;
 
 public class UserTypeConst {
 

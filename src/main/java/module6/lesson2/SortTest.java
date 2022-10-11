@@ -1,29 +1,39 @@
 package module6.lesson2;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class SortTest {
 
     public static void main(String[] args) throws Exception{
 
-        int array [] = {5, 7, 8, 30, 1};
+        Integer array [] = {5, 7, 8, 30, 1};
         sort(array, new Comparator() {
             @Override
-            public boolean compare(int val1, int val2) {
-                return val1 > val2;
+            public <T> boolean compare(T val1, T val2) {
+                return (Integer)val1 < (Integer) val2;
             }
         });
-        System.out.println("array = " + Arrays.toString(array));
+        //System.out.println("array = " + Arrays.toString(array));
+
+        String arrayStr [] = {"aaa", "aab", "sdfgsd", "hhhh", "EEEE"};
+        sort(arrayStr, new Comparator() {
+            @Override
+            public <T> boolean compare(T val1, T val2) {
+                return ((String)val1).compareTo((String) val2) > 0;
+            }
+        });
+        System.out.println("array = " + Arrays.toString(arrayStr));
 
     }
 
-    public static void sort (int [] arr, Comparator comparator) {
+    public static <T> void sort (T [] arr, Comparator comparator) {
         boolean isSorted = false;
         while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < arr.length - 1; i++) {
                 if(comparator.compare(arr[i], arr[i + 1])) {
-                    int temp = arr[i];
+                    T temp = arr[i];
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
                     isSorted=false;

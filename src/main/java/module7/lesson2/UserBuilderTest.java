@@ -1,5 +1,6 @@
 package module7.lesson2;
 
+import java.io.InputStream;
 import java.time.LocalDate;
 
 public class UserBuilderTest {

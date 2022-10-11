@@ -1,7 +1,6 @@
-package module5.lesson1.arrayutils;
+package module6.lesson1.arrayutils;
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class ArrayUtilsTest {
 

@@ -1,4 +1,4 @@
-package module5.lesson1;
+package module6.lesson1;
 
 public class SuperPlayer extends Player {
 

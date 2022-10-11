@@ -1,4 +1,4 @@
-package module5.lesson1.polimorpf.bankapplication;
+package module6.lesson1.polimorpf.bankapplication;
 
 public class MonobankCard extends Card {
 

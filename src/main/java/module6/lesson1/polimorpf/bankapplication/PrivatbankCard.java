@@ -1,6 +1,4 @@
-package module5.lesson1.polimorpf.bankapplication;
-
-import module4.lesson1.ReturnCycleTask;
+package module6.lesson1.polimorpf.bankapplication;
 
 public class PrivatbankCard extends Card {
     private double commission = 0.012;

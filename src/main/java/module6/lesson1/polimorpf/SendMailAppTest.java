@@ -1,4 +1,4 @@
-package module5.lesson1.polimorpf;
+package module6.lesson1.polimorpf;
 
 public class SendMailAppTest {
     public static void main(String[] args) {
