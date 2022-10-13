@@ -1,21 +1,23 @@
 package module6.lesson1.polimorpf.bankapplication;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ApplicationAccount {
 
     private String accountNumber = "32169498sdgsdg";
 
-    private Card[] myCards;
+    private Set<Card> myCards = new HashSet<>();
 
     public void initCard() {
-        myCards = new Card[3];
         Card privatbankCard = new PrivatbankCard();
         privatbankCard.setBalance(14000.15);
         privatbankCard.setCardNumber("6546845646546");
         Card monobankCard = new MonobankCard();
         monobankCard.setBalance(4000.90);
         monobankCard.setCardNumber("9879464546544");
-        myCards[0] = privatbankCard;
-        myCards[1] = monobankCard;
+        myCards.add(privatbankCard);
+        myCards.add(monobankCard);
     }
 
     public void deleteAllBankCards(BankNames bankName) {
@@ -28,9 +30,12 @@ public class ApplicationAccount {
                 bankClass = PrivatbankCard.class;
             } break;
         }
-        for(int i = 0; i < myCards.length; i++) {
-            if(myCards[i] != null && (bankClass != null && bankClass.equals(myCards[i].getClass()))) {
-                myCards[i] = null;
+
+        // TODO come back with STREAM API coming soon........
+        for (Card card: myCards) {
+            if(bankClass != null && bankClass.equals(card.getClass())) {
+                myCards.remove(card);
+                break;
             }
         }
     }
@@ -39,23 +44,15 @@ public class ApplicationAccount {
 
         boolean cardExists = false;
 
-        for(Card card: myCards) {
-            if(cardToAdd.equals(card)) {
-                cardExists = true;
-            }
-        }
-
-        if (!cardExists) {
-            myCards[2] = cardToAdd;
+        if (!myCards.contains(cardToAdd)) {
+            myCards.add(cardToAdd);
         } else {
             System.out.println("You are trying to add duplicate");
         }
     }
 
     public void getAllCardsInfo() {
-        for(Card card: myCards) {
-            System.out.println(card);
-        }
+        System.out.println(myCards);
     }
 
 
