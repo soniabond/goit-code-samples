@@ -1,0 +1,7 @@
+Masha 100
+Lina 53
+Oleg 80
+Rita 70
+Masha 75
+Lina 10
+Hena 90
