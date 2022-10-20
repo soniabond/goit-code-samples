@@ -26,11 +26,13 @@ public class WhoOwesMoney {
         Comparator<String> comparator = new Comparator<>() {
             @Override
             public int compare(String o1, String o2) {
-                return 0;
+                return result.get(o1) < result.get(o2) ? 1 : -1;
             }
         };
 
         Map<String, Integer> treeMap = new TreeMap<>(comparator);
+        treeMap.putAll(result);
+        System.out.println("treeMap = " + treeMap);
 
     }
 }

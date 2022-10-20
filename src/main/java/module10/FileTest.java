@@ -1,14 +1,14 @@
 package module10;
 
-//app they owe me money - a notebook name + amount of money
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
+
+//SerialVersionUID
 public class FileTest {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
 //        InputStream inputStream = new CustomInputStream("12345");
 //        Scanner scanner = new Scanner(inputStream);
 //        System.out.println("scanner.nextInt() = " + scanner.nextInt());
@@ -30,15 +30,16 @@ public class FileTest {
 //            }
 //        }
 
-        OutputStream fos = new FileOutputStream("testOutput.txt");
-        InputStream fis = new FileInputStream("test.txt");
-        Scanner scanner = new Scanner(fis);
-        while (scanner.hasNext()) {
-            fos.write(scanner.nextLine().getBytes());
-        }
-        //fos.write("\njava program".getBytes(StandardCharsets.UTF_8));
-        fos.close();
+//        OutputStream fos = new FileOutputStream("testOutput.txt");
+//        InputStream fis = new FileInputStream("test.txt");
+//        Scanner scanner = new Scanner(fis);
+//        while (scanner.hasNext()) {
+//            fos.write(scanner.nextLine().getBytes());
+//        }
+//        //fos.write("\njava program".getBytes(StandardCharsets.UTF_8));
+//        fos.close();
+//
+//        fis.close();
 
-        fis.close();
     }
 }
