@@ -1,0 +1,2 @@
+electricity,1200
+gas,9000
