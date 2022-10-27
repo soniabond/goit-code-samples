@@ -7,10 +7,15 @@ public class Employee {
 
     private final Position position;
 
-    public Employee(String fullName, Integer salary, Position position) {
+    private final Integer workExp;
+
+    private boolean hasBonus;
+
+    public Employee(String fullName, Integer salary, Position position, Integer workExp) {
         this.fullName = fullName;
         this.salary = salary;
         this.position = position;
+        this.workExp = workExp;
     }
 
     public String getFullName() {
@@ -25,12 +30,26 @@ public class Employee {
         return position;
     }
 
+    public Integer getWorkExp() {
+        return workExp;
+    }
+
+    public boolean isHasBonus() {
+        return hasBonus;
+    }
+
+    public void setHasBonus(boolean hasBonus) {
+        this.hasBonus = hasBonus;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
                 "fullName='" + fullName + '\'' +
                 ", salary=" + salary +
                 ", position=" + position +
+                ", workExp=" + workExp +
+                ", hasBonus=" + hasBonus +
                 '}';
     }
 }

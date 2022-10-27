@@ -1,27 +1,24 @@
 package module11;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 //є список об'єктів робітників компаніі. перетворити його на список імен співробітників
 public class StreamApiTest {
     public static void main(String[] args) {
         List<Employee> employees = List.of(
-                new Employee("John Doe", 1500, Position.MANAGER),
-                new Employee("Maryna L", 900, Position.PROGRAMMER),
-                new Employee("Olegh I", 1000, Position.MANAGER),
-                new Employee("Mikhail I", 1200, Position.MANAGER)
+                new Employee("John Doe", 1500, Position.MANAGER, 10),
+                new Employee("Maryna L", 900, Position.PROGRAMMER, 1),
+                new Employee("Olegh I", 1000, Position.MANAGER, 4),
+                new Employee("Mikhail I", 1200, Position.MANAGER, 6)
         );
 //        List<String> names = convertEmployeeToNames(employees);
 //        System.out.println("names = " + names);
 //        String names = convertEmployeeToNamesString(employees);
 //        System.out.println("names = " + names);
 
-//        List<Integer> salary = convertEmployeeToSalaryOfManagers(employees);
-//        System.out.println("salary = " + salary);
+        List<Integer> salary = convertEmployeeToSalaryOfManagers(employees);
+        System.out.println("salary = " + salary);
 
 
 //        Double avgSalary = getAverageSalaryOfManagers(employees);
@@ -31,16 +28,19 @@ public class StreamApiTest {
 //        System.out.println("max = " + max);
 
         // дано кілька рядків імен через комуб повернути список імен
-        String [] names = {
-                "Vasia Petia Olia",
-                "Anton Masha"
-        };
-        List<String> res = Arrays.stream(names)
-                .map(nameLine -> Arrays.asList(nameLine.split(" ")))
-                .flatMap(l -> l.stream())
-                .sorted()
-                .collect(Collectors.toList());
-        System.out.println("res = " + res);
+//        String [] names = {
+//                "Vasia Petia Olia",
+//                "Anton Masha"
+//        };
+//        List<String> res = Arrays.stream(names)
+//                .map(nameLine -> Arrays.asList(nameLine.split(" ")))
+//                .flatMap(l -> l.stream())
+//                .sorted()
+//                .collect(Collectors.toList());
+//        System.out.println("res = " + res);
+
+//        List<Employee> honorWithBonus = honorWithBonus(employees);
+//        System.out.println("honorWithBonus = " + honorWithBonus);
 
     }
 
@@ -65,7 +65,7 @@ public class StreamApiTest {
     //є список об'єктів робітників компаніі. перетворити його на рядок імен співробітників якы роздыляються комою
     public static String convertEmployeeToNamesString(List<Employee> employeeList) {
         return employeeList.stream()
-                .map((empl) -> empl.getFullName())
+                .map(Employee::getFullName)
                 .collect(Collectors.joining(", "));
     }
 
@@ -74,7 +74,8 @@ public class StreamApiTest {
 
         return employeeList.stream()
                 .filter(employee -> Position.MANAGER.equals(employee.getPosition()))
-                .map(employee -> employee.getSalary())
+                .peek(System.out::println)
+                .map(Employee::getSalary)
                 .sorted((s1, s2) -> s2 - s1)
                 .collect(Collectors.toList());
 
@@ -93,7 +94,7 @@ public class StreamApiTest {
 
         return employeeList.stream()
                 .filter(employee -> Position.MANAGER.equals(employee.getPosition()))
-                .mapToInt(employee -> employee.getSalary())
+                .mapToInt(Employee::getSalary)
                 .average()
                 .getAsDouble();
 
@@ -107,5 +108,19 @@ public class StreamApiTest {
                 .limit(1)
                 .collect(Collectors.toList());
 
+    }
+
+    // якщо співробітник має більше 5 років досвіду - надати йому премію
+    // (по факту засетити поле hasBonus)
+    public static List<Employee> honorWithBonus(List<Employee> employees){
+        return employees.stream()
+                .peek(employee -> enrichWithBonus(employee))
+                .collect(Collectors.toList());
+    }
+
+    private static void enrichWithBonus(Employee employee) {
+        if(employee.getWorkExp() > 5) {
+            employee.setHasBonus(true);
+        }
     }
 }
